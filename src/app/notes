@@ -1,0 +1,26 @@
+Decorator that marks a class as an Angular component and provides configuration metadata that determines how the component should be processed, instantiated, and used at runtime.
+ Components are the most basic UI building block of an Angular app. An Angular app contains a tree of Angular components.
+ Angular components are a subset of directives, always associated with a template. Unlike other directives, only one component can be instantiated for a given element in a template.
+ A component must belong to an NgModule in order for it to be available to another component or application. To make it a member of an NgModule, list it in the declarations field of the NgModule metadata.
+ Note that, in addition to these options for configuring a directive, you can control a component's runtime behavior by implementing life-cycle hooks. 
+The CSS selector that identifies this directive in a template and triggers instantiation of the directive.
+
+
+
+
+[(ngModel)] is the Angular syntax to bind the hero.name property to the textbox. Data flow in both directions: from the property to the textbox; and from the textbox back to the property.
+
+Unfortunately, immediately after this change, the application breaks. If you looked in the browser console, you'd see Angular complaining that "ngModel ... isn't a known property of input."
+
+Although NgModel is a valid Angular directive, it isn't available by default. It belongs to the optional FormsModule. You must opt-in to using that module.
+
+The @Component decorator provides the Angular metadata for the component. The CSS selector name, food-detail, will match the element tag that identifies this component within a parent component's template.
+
+ the parent AppComponent will tell the child FoodDetailComponent which food to display by binding its selectedFood to the food property of the FoodDetailComponent. The binding will look like this:
+
+<food-detail [food]="selectedFood"></food-detail>
+Putting square brackets around the food property, to the left of the equal sign (=), makes it the target of a property binding expression. You must declare a target binding property to be an input property.
+ Otherwise, Angular rejects the binding and throws an error.
+
+ In general, the declarations array contains a list of application components, pipes, and directives that belong to the module.
+  A component must be declared in a module before other components can reference it
