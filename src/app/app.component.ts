@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   template: `
     <h1>{{title}}</h1>
     <nav>
-    <a routerLink="/foods">link to them foods</a>
+    <a routerLink="/food">link to them foods</a>
     <a routerLink="/dashboard">Dashboard</a>
    </nav>
     <router-outlet></router-outlet>

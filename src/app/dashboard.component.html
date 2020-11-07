@@ -1,8 +1,9 @@
 <h3>Top Heroes</h3>
 <div class="grid grid-pad">
-  <div *ngFor="let food of foods" class="col-1-4">
-    <div class="module hero">
+<a *ngFor="let food of foods" [routerLink]="['/detail', food.id]"  class="col-1-4">
+    <!-- This time, you're binding to an expression containing a link parameters array. The array has two elements: the path of the destination route and a route parameter set to the value of the current hero's id. -->
+    <div class="module food">
       <h4>{{food.name}}</h4>
     </div>
-  </div>
+</a>
 </div>

@@ -1,3 +1,5 @@
+// main reason for this class is which is to establish key facts about the entire app for the Angular compiler.
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule }   from '@angular/router';
@@ -11,6 +13,7 @@ import { DashboardComponent } from './dashboard.component';
 import { FoodService } from './food.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent, 
@@ -22,25 +25,7 @@ import { FoodService } from './food.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule ,// <-- import the FormsModule before binding with [(ngModel)]
-    RouterModule.forRoot([
-      {
-        path: 'foods',
-        component: FoodsComponent
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
-      {
-        path: 'detail/:id', // <-- dont think this has to be same name as the component it self, but guess we telling what ever paht name will link to that cmoponent
-        component: FoodDetailComponent //The colon (:) in the path indicates that :id is a placeholder for a specific food id when navigating to the FoodDetailComponent.
-      },
-      {
-        path: '', // when app starts we have a 4200 thats it, we want it to navigate to this dashboard page
-        redirectTo: '/dashboard', // it goes through app component first then links to our dash
-        pathMatch: 'full'
-      },
-    ])
+    
   ],
   providers: [FoodService],
   bootstrap: [AppComponent]
@@ -54,3 +39,25 @@ import { FoodService } from './food.service';
 // Component: The component that the router should create when navigating to this route (HeroesComponent).
 
 export class AppModule { }
+
+
+// this was here, but was getting messy so to be moved into app routing moduel
+// RouterModule.forRoot([
+//   {
+//     path: 'foods',
+//     component: FoodsComponent
+//   },
+//   {
+//     path: 'dashboard',
+//     component: DashboardComponent
+//   },
+//   {
+//     path: 'detail/:id', // <-- dont think this has to be same name as the component it self, but guess we telling what ever paht name will link to that cmoponent
+//     component: FoodDetailComponent //The colon (:) in the path indicates that :id is a placeholder for a specific food id when navigating to the FoodDetailComponent.
+//   },
+//   {
+//     path: '', // when app starts we have a 4200 thats it, we want it to navigate to this dashboard page
+//     redirectTo: '/dashboard', // it goes through app component first then links to our dash
+//     pathMatch: 'full'
+//   },
+// ])
