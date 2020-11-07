@@ -11,4 +11,9 @@ export class FoodService {
     getFood(): Promise<Food[]>{
         return Promise.resolve(FOODS);
     }
+
+    getFoodItem(id: number): Promise<Food>{
+        return this.getFood()
+             .then(foodsReturned => foodsReturned.find(foodItem => foodItem.id === id));
+    }
 }

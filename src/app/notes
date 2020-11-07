@@ -58,3 +58,33 @@ the caller of that asynchronous method will need to change some of the implement
 You have to change the implementation to act on the Promise when it resolves.
 When the Promise resolves successfully, you'll have heroes to display.
 Pass the callback function as an argument to the Promise's then() method:
+
+Use the Angular router to enable navigation.
+
+The Angular router is an external, optional Angular NgModule called RouterModule. The router is a combination of multiple provided services (RouterModule),
+multiple directives (RouterOutlet, RouterLink, RouterLinkActive), and a configuration (Routes). You'll configure the routes first.
+
+we create a configuration file for the app routes.
+
+Routes tell the router which views to display when a user clicks a link or pastes a URL into the browser address bar.
+
+The Routes are an array of route definitions.
+
+This route definition has the following parts:
+
+Path: The router matches this route's path to the URL in the browser address bar (heroes).
+Component: The component that the router should create when navigating to this route (HeroesComponent).
+The forRoot() method is called because a configured router is provided at the app's root. The forRoot() method supplies the Router service providers and directives needed for routing, 
+and performs the initial navigation based on the current browser URL.
+
+If you paste the path, /foods, into the browser address bar at the end of the URL, the router should match it to 
+the foods route and display the foodsComponent. However, you have to tell the router where to display the component. To do this, you can add a <router-outlet> element at the end of the template. RouterOutlet is one of the directives provided by the RouterModule. 
+The router displays each component immediately below the <router-outlet> as users navigate through the app.
+
+Note the routerLink binding in the anchor tag. The RouterLink directive (another of the RouterModule directives) is bound to a string that tells the router where to navigate when the user clicks the link.
+
+The switchMap operator maps the id in the Observable route parameters to a new Observable, the result of the HeroService.getHero() method.
+
+If a user re-navigates to this component while a getHero request is still processing, switchMap cancels the old request and then calls HeroService.getHero() again.
+
+The hero id is a number. Route parameters are always strings. So the route parameter value is converted to a number with the JavaScript (+) operator.
