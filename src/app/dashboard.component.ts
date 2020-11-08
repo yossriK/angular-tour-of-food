@@ -7,6 +7,7 @@ import { Food } from './food';
   selector: 'my-dashboard',
   //template: '<h3>My Dashboard</h3>'
   templateUrl: './dashboard.component.html',  // <-- points to a new template file
+  styleUrls: [ './dashboard.component.css' ]
 })
 
 export class DashboardComponent implements OnInit {

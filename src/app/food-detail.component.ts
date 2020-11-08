@@ -12,11 +12,12 @@ import { switchMap } from 'rxjs/operators';
 
     selector: 'food-detail', // tag name of teh element that represents this component
     templateUrl: './food-detail.component.html',
-
+    styleUrls: [ './food-detail.component.css' ]
 })
 
 export class FoodDetailComponent  implements OnInit {
-    @Input() food: Food;
+    //@Input() food: Food;
+    food : Food;
     
     constructor(
         private foodService: FoodService,
@@ -26,7 +27,7 @@ export class FoodDetailComponent  implements OnInit {
 
       ngOnInit(): void {
         this.route.params.pipe(switchMap((params: Params) => this.foodService.getFoodItem(+params['id'])))
-          .subscribe(hero => this.food = hero);
+          .subscribe(foodReturned => this.food = foodReturned);
       }
 
       goBack(): void {  // <-- navigates backwared one step in the browser history stack using lication service that we injected
