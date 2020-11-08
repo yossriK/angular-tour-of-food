@@ -27,7 +27,8 @@ import { FoodService } from './food.service';
     FormsModule ,// <-- import the FormsModule before binding with [(ngModel)]
     
   ],
-  providers: [FoodService],
+  providers: [FoodService,
+  RouterModule],
   bootstrap: [AppComponent]
 })
 
